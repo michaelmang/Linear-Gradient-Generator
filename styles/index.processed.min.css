@@ -1,0 +1,2 @@
+*{box-sizing:border-box}body{background:#fff}header{font-family:Montserrat,sans-serif;text-transform:uppercase;letter-spacing:2px;font-weight:400;text-align:center;margin-top:50px;margin-bottom:50px}.grid{columns:3 auto;column-gap:20px;padding-left:10px;padding-right:10px}.color{display:inline-block;border-radius:3px;width:100%;height:200px;margin-bottom:20px}.pop-enter-active{transition:opacity .3s ease-out,transform .3s ease-out}.pop-enter{opacity:0;transform:scale(.9)}.pop-enter-to{opacity:1;transform:scale(1)}
+/*# sourceMappingURL=index.processed.min.css.map */

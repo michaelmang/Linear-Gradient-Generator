@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <title>Linear Gradient Generator</title>
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="Linear Gradient Generator | Coding Artist">
+  <meta itemprop="description" content="Generate 30 beautiful linear gradients for your site.">
+  <meta itemprop="image" content="https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/Screen%20Shot%202017-06-20%20at%202.29.16%20AM.png">
+  
+  <!-- Twitter card markup -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@codingartist_io" />
+  <meta name="twitter:title" content="Linear Gradient Generator | Coding Artist" />
+  <meta name="twitter:description" content="Generate 30 beautiful linear gradients for your site." />
+  <meta name="twitter:image" content="https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/Screen%20Shot%202017-06-20%20at%202.29.16%20AM.png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.processed.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.processed.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+  <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
+</head>
+<body>
+  
+  <script type="text/x-template" id="info">
+    <section class="info">
+      <a href="http://codingartist.io/">
+      	<img class="logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/ca_logo.svg"/>
+      </a>
+      <h2>Linear Gradient Generator</h2>
+      <h3>Made with Vue.js, Codepen, and ❤️</h3>
+      <a 
+        class="twitter-share-button"
+        href="https://twitter.com/home?status=Linear%20Gradient%20Generator%20%7C%20Generate%2030%20beautiful%20linear%20gradients%20for%20your%20site.%0A%0AVia%20%40codingartist_io%0A%0AMade%20with%20%23vuejs"
+        data-size="large">
+     Tweet
+     </a>
+    </section>
+  </script>
+  
+  <script type="text/x-template" id="gradient-card">
+    <div @click="success" :data-clipboard-text="gradient.background" class="gradient-card">
+      <div class="gradient" :style="gradient"></div>
+      <div class="card-info">
+        <div class="color-1" :style="color1">{{gradient1}}</div>
+        <div class="color-2" :style="color2">{{gradient2}}</div>
+    	</div>
+    </div>
+  </script>
+  
+  <div id="app">
+    <section>
+      <transition name="fade">
+      <div id="note" v-if="showNote">
+        <i class="icon fa fa-thumbs-o-up" aria-hidden="true"></i> Linear gradient copied to clipboard.
+      </div>
+      </transition>
+    </section>
+    <info></info>
+    <section id="gradients" class="container">
+      <gradient-card v-on:success="msg"
+        gradient1="#30496B"
+        gradient2="#30B8D2"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#FBCA88"
+        gradient2="#EF69AD"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#B6C1D4"
+        gradient2="#EC68B1"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#ABE5E6"
+        gradient2="#7062F0"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#476892"
+        gradient2="#59355D"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#92F1D5"
+        gradient2="#ABF6BD"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#7D6AE7"
+        gradient2="#56A2D5"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#82E9E4"
+        gradient2="#F3D62F"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#239FE9"
+        gradient2="#44D5F3"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#3D3949"
+        gradient2="#6772A4"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#FD5A49"
+        gradient2="#FDDC98"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#9AD3DE"
+        gradient2="#93B8C0"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#F32F8E"
+        gradient2="#B236D0"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#247CC4"
+        gradient2="#336BAE"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#FB7140"
+        gradient2="#FB9951"              
+      >
+      </gradient-card>   
+      <gradient-card v-on:success="msg" 
+        gradient1="#6FE594"
+        gradient2="#27A47C"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#95FD48"
+        gradient2="#19E9A6"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#469FFF"
+        gradient2="#A39AF9"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#5CF0F8"
+        gradient2="#ECDDFE"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#F1467A"
+        gradient2="#FB949E"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#DAE7F0"
+        gradient2="#FADAE7"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#6155D4"
+        gradient2="#5B97F2"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#47AEA3"
+        gradient2="#08B1C5"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#DA1FF2"
+        gradient2="#4C15D0"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#D0F56B"
+        gradient2="#5876FB"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#FFE9D0"
+        gradient2="#FD7153"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#DBFDEC"
+        gradient2="#FFC2D4"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#C3A8EE"
+        gradient2="#F5C1EA"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#484C91"
+        gradient2="#929BEF"              
+      >
+      </gradient-card>
+      <gradient-card v-on:success="msg" 
+        gradient1="#97F7FB"
+        gradient2="#8D8AFC"              
+      >
+      </gradient-card>
+    </section>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="/scripts/components.js"></script>
+  <script src="/scripts/index.js"></script>
+</body>
+</html>
